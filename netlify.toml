@@ -1,12 +1,14 @@
 [build]
-  # On utilise npx pour éviter le problème de permission sur le binaire local
-  command = "npx vite build"
+  # Netlify exécute automatiquement "npm install" avant cette commande.
+  # "npm run build" utilise la version locale de Vite installée dans node_modules, sans problème de permission.
+  command = "npm run build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "18"
 
-# Le plugin n'est pas nécessaire pour un site React/Vite simple, 
-# vous pouvez le retirer pour simplifier, mais je le laisse si vous en avez besoin.
-[[plugins]]
-  package = "@netlify/plugin-functions-install-core"
+# Indispensable pour React Router : évite les erreurs 404 quand on rafraîchit une page
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
