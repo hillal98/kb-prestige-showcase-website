@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #0a0a0a;
+  --color-coal: #141414;
+  --color-onyx: #1a1a1a;
+  --color-gold: #d4af37;
+  --color-gold-deep: #a8852a;
+  --color-gold-pale: #f4e4bc;
+  --color-cream: #f5f5f5;
+  --color-smoke: #b0b0b0;
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", "Open Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-night);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-night);
+}
+
+/* ------- Scrollbar ------- */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d4af37, #6f5a1c);
+  border-radius: 99px;
+  border: 2px solid #0a0a0a;
+}
+
+/* ------- Film grain overlay ------- */
+.grain-overlay {
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 90;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 9s steps(6) infinite;
+}
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -2%); }
+  80% { transform: translate(3%, 3%); }
+}
+
+/* ------- Gold gradient text ------- */
+.text-gold-gradient {
+  background: linear-gradient(100deg, #f4e4bc 0%, #d4af37 35%, #9a7b24 55%, #d4af37 75%, #f4e4bc 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shine 7s linear infinite;
+}
+@keyframes gold-shine {
+  to { background-position: 200% center; }
+}
+
+/* ------- Decorative gold rule with diamond ------- */
+.gold-rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.gold-rule::before,
+.gold-rule::after {
+  content: "";
+  height: 1px;
+  width: 3rem;
+  background: linear-gradient(90deg, transparent, var(--color-gold));
+}
+.gold-rule::after {
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+.gold-rule > span {
+  width: 7px;
+  height: 7px;
+  background: var(--color-gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+}
+
+/* ------- Card with animated gold border on hover ------- */
+.lux-card {
+  position: relative;
+  background: linear-gradient(160deg, #161616 0%, #0f0f0f 100%);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.6s, box-shadow 0.6s;
+}
+.lux-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(140deg, rgba(212, 175, 55, 0.7), transparent 35%, transparent 65%, rgba(212, 175, 55, 0.45));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.6s;
+  pointer-events: none;
+}
+.lux-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.25);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8), 0 0 40px -18px rgba(212, 175, 55, 0.35);
+}
+.lux-card:hover::before {
+  opacity: 1;
+}
+
+/* ------- Buttons ------- */
+.btn-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 2.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+  background: linear-gradient(120deg, #f4e4bc, #d4af37 45%, #b08d2a);
+  background-size: 180% auto;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-position 0.6s, transform 0.4s, box-shadow 0.4s;
+  min-height: 44px;
+}
+.btn-gold:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px -10px rgba(212, 175, 55, 0.55);
+}
+.btn-ghost {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 2.2rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-pale);
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.5s, border-color 0.5s;
+  min-height: 44px;
+}
+.btn-ghost::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+.btn-ghost:hover {
+  color: #0a0a0a;
+  border-color: var(--color-gold);
+}
+.btn-ghost:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ------- Animated underline link ------- */
+.link-lux {
+  position: relative;
+}
+.link-lux::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-lux:hover::after,
+.link-lux.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ------- Marquee ------- */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee-x 36s linear infinite;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* ------- Slow pulse for scroll indicator ------- */
+@keyframes scroll-drop {
+  0% { transform: translateY(-100%); }
+  55% { transform: translateY(100%); }
+  100% { transform: translateY(100%); }
+}
+.animate-scroll-drop {
+  animation: scroll-drop 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .grain-overlay, .text-gold-gradient, .animate-marquee, .animate-scroll-drop {
+    animation: none !important;
+  }
+}
