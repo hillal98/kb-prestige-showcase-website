@@ -8,14 +8,13 @@ import {
 } from "lucide-react";
 
 export const CONTACT = {
-  email: "contact@kbprestige.fr",
-  phone: "+33 6 94 94 94 94",
-  phoneHref: "+33694949494",
+  phone: "+33 6 29 96 45 35",
+  phoneHref: "+33629964535",
   instagram: "https://www.instagram.com/kb_prestige94",
   instagramHandle: "@kb_prestige94",
   facebook: "https://www.facebook.com/kbprestige94",
   whatsapp:
-    "https://wa.me/33694949494?text=Bonjour%20KB%20PRESTIGE%2C%20je%20souhaite%20un%20devis%20pour%20une%20prestation.",
+    "https://wa.me/33629964535?text=Bonjour%20KB%20PRESTIGE%2C%20je%20souhaite%20un%20devis%20pour%20une%20prestation.",
   zones: ["Paris", "Île-de-France", "Pays de la Loire", "Toute la France"],
 };
 

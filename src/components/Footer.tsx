@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUp, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUp, MapPin, MessageCircle, Phone } from "lucide-react";
 import { FacebookIcon, InstagramIcon } from "./SocialIcons";
 import Logo from "./Logo";
 import { CONTACT, NAV_LINKS, SERVICES } from "../data/site";
@@ -90,9 +90,9 @@ export default function Footer() {
             </h3>
             <ul className="mt-6 space-y-4 text-sm text-cream/75">
               <li>
-                <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-3 transition-colors hover:text-gold-pale">
-                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-                  {CONTACT.email}
+                <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 transition-colors hover:text-[#25D366]">
+                  <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#25D366]" />
+                  WhatsApp — {CONTACT.phone}
                 </a>
               </li>
               <li>

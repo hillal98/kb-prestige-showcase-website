@@ -64,7 +64,7 @@ export function MentionsLegales() {
           disponibles sur simple demande.
         </p>
         <p>
-          Contact : <a className="text-gold hover:text-gold-pale" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> —{" "}
+          Contact : <a className="text-gold hover:text-gold-pale" href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a> —{" "}
           <a className="text-gold hover:text-gold-pale" href={`tel:${CONTACT.phoneHref}`}>{CONTACT.phone}</a>
         </p>
         <p>Directeur de la publication : le représentant légal de KB PRESTIGE.</p>
@@ -119,8 +119,9 @@ export function PolitiqueConfidentialite() {
       <Section title="1. Responsable du traitement">
         <p>
           Le responsable du traitement des données collectées sur ce site est{" "}
-          <strong className="text-cream">KB PRESTIGE</strong>, joignable à l'adresse{" "}
-          <a className="text-gold hover:text-gold-pale" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.
+          <strong className="text-cream">KB PRESTIGE</strong>, joignable via{" "}
+          <a className="text-gold hover:text-gold-pale" href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a>{" "}
+          ou par téléphone au <a className="text-gold hover:text-gold-pale" href={`tel:${CONTACT.phoneHref}`}>{CONTACT.phone}</a>.
         </p>
       </Section>
       <Section title="2. Données collectées">
@@ -158,7 +159,8 @@ export function PolitiqueConfidentialite() {
           Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits
           d'accès, de rectification, d'effacement, de limitation, d'opposition et de
           portabilité de vos données. Pour les exercer, écrivez à{" "}
-          <a className="text-gold hover:text-gold-pale" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>{" "}
+          <a className="text-gold hover:text-gold-pale" href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a>{" "}
+          ou par téléphone au <a className="text-gold hover:text-gold-pale" href={`tel:${CONTACT.phoneHref}`}>{CONTACT.phone}</a>,{" "}
           en joignant un justificatif d'identité.
         </p>
         <p>
